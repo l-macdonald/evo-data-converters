@@ -33,9 +33,9 @@ def _render_markdown(registry: dict, generated_utc: str) -> str:
     lines.append("This page is generated from `converter-capabilities.json`.\n")
     lines.append(f"Generated (UTC): {generated_utc}\n")
     lines.append(
-      "| Converter | Status | Import | Export | Source Formats | Evo Objects (Import) | Key Limitations |\n"
+      "| Converter | Status | Import | Export | Source Formats | Extension | Evo Objects (Import) | Key Limitations |\n"
     )
-    lines.append("|---|---|---|---|---|---|---|\n")
+    lines.append("|---|---|---|---|---|---|---|---|\n")
 
     for conv in sorted(registry["converters"], key=lambda c: c["id"]):
         lines.append(
@@ -49,6 +49,8 @@ def _render_markdown(registry: dict, generated_utc: str) -> str:
             + _yes_no(conv["export"]["supported"])
             + " | "
             + _join(conv["formats"])
+            + " | "
+            + str(conv.get("extension", "-"))
             + " | "
             + _join(conv["import"]["produces_evo_objects"])
             + " | "
@@ -65,6 +67,7 @@ def _render_markdown(registry: dict, generated_utc: str) -> str:
         lines.append(f"- Import supported: `{_yes_no(conv['import']['supported'])}`\n")
         lines.append(f"- Export supported: `{_yes_no(conv['export']['supported'])}`\n")
         lines.append(f"- Source formats: {_join(conv['formats'])}\n")
+        lines.append(f"- Extension: {conv.get('extension', '-')}\n")
         lines.append(f"- Platform/runtime notes: {_join(conv.get('platform', []))}\n")
         lines.append(f"- Import source types: {_join(conv['import']['source_types'])}\n")
         lines.append(f"- Evo objects produced: {_join(conv['import']['produces_evo_objects'])}\n")
@@ -85,6 +88,7 @@ def _render_html(registry: dict, generated_utc: str) -> str:
             f"<td>{_yes_no(conv['import']['supported'])}</td>"
             f"<td>{_yes_no(conv['export']['supported'])}</td>"
             f"<td>{html.escape(_join(conv['formats']))}</td>"
+            f"<td>{html.escape(str(conv.get('extension', '-')))}</td>"
             f"<td>{html.escape(_join(conv['import']['produces_evo_objects']))}</td>"
             f"<td>{html.escape(_join(conv['limitations']))}</td>"
             "</tr>"
@@ -207,6 +211,7 @@ def _render_html(registry: dict, generated_utc: str) -> str:
             <th>Import</th>
             <th>Export</th>
             <th>Formats</th>
+            <th>Extension</th>
             <th>Import Objects</th>
             <th>Limitations</th>
           </tr>

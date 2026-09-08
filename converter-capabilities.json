@@ -8,6 +8,7 @@
       "name": "DUF",
       "package": "evo-data-converters-duf",
       "status": "implemented",
+      "extension": ".duf",
       "formats": [
         ".duf"
       ],
@@ -41,6 +42,7 @@
       "name": "GOCAD",
       "package": "evo-data-converters-gocad",
       "status": "implemented",
+      "extension": ".vo",
       "formats": [
         ".vo"
       ],
@@ -69,6 +71,7 @@
       "name": "Image",
       "package": "evo-data-converters-image",
       "status": "implemented",
+      "extension": ".jpeg",
       "formats": [
         ".jpeg",
         ".jpg",
@@ -104,6 +107,7 @@
       "name": "OBJ",
       "package": "evo-data-converters-obj",
       "status": "implemented",
+      "extension": ".obj",
       "formats": [
         ".obj"
       ],
@@ -138,6 +142,7 @@
       "name": "OMF",
       "package": "evo-data-converters-omf",
       "status": "implemented",
+      "extension": ".omf",
       "formats": [
         ".omf"
       ],
@@ -178,6 +183,7 @@
       "name": "RESQML",
       "package": "evo-data-converters-resqml",
       "status": "implemented",
+      "extension": ".epc",
       "formats": [
         ".epc",
         ".xml"
@@ -213,6 +219,7 @@
       "name": "SHP",
       "package": "evo-data-converters-shp",
       "status": "implemented",
+      "extension": ".shp",
       "formats": [
         ".shp",
         ".shx",
@@ -245,6 +252,7 @@
       "name": "UBC",
       "package": "evo-data-converters-ubc",
       "status": "implemented",
+      "extension": ".msh",
       "formats": [
         ".msh",
         ".mod",
@@ -276,6 +284,7 @@
       "name": "VTK",
       "package": "evo-data-converters-vtk",
       "status": "implemented",
+      "extension": ".vti",
       "formats": [
         ".vti",
         ".vtr",
@@ -317,6 +326,7 @@
       "name": "XYZ",
       "package": "evo-data-converters-xyz",
       "status": "implemented",
+      "extension": ".xyz",
       "formats": [
         ".xyz",
         ".XYZ"

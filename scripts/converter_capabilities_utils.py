@@ -54,6 +54,7 @@ def validate_registry(registry: dict) -> list[str]:
             "name",
             "package",
             "status",
+            "extension",
             "formats",
             "platform",
             "import",
@@ -91,6 +92,14 @@ def validate_registry(registry: dict) -> list[str]:
         status = conv.get("status")
         if status not in ALLOWED_STATUS:
             errors.append(f"{context}.status must be one of: {sorted(ALLOWED_STATUS)}")
+
+        extension = conv.get("extension")
+        if not isinstance(extension, str) or not extension:
+            errors.append(f"{context}.extension must be a non-empty string")
+        else:
+            formats = conv.get("formats")
+            if isinstance(formats, list) and extension not in formats:
+                errors.append(f"{context}.extension must be one of the supported formats")
 
         for array_field in ("formats", "platform", "limitations"):
             if not _is_list_of_strings(conv.get(array_field)):

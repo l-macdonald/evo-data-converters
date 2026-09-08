@@ -61,6 +61,7 @@
         "name",
         "package",
         "status",
+        "extension",
         "formats",
         "platform",
         "import",
@@ -88,6 +89,10 @@
             "template_only",
             "planned"
           ]
+        },
+        "extension": {
+          "type": "string",
+          "minLength": 1
         },
         "formats": {
           "type": "array",
