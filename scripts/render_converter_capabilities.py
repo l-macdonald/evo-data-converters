@@ -7,7 +7,6 @@ from pathlib import Path
 
 from scripts.converter_capabilities_utils import normalize_registry, validate_registry, write_registry
 
-
 REPO_ROOT = Path(__file__).resolve().parent.parent
 INPUT_FILE = REPO_ROOT / "converter-capabilities.json"
 OUTPUT_DIR = REPO_ROOT / "docs"
