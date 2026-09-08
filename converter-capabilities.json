@@ -8,7 +8,9 @@
       "name": "DUF",
       "package": "evo-data-converters-duf",
       "status": "implemented",
-      "extension": ".duf",
+      "extensions": [
+        ".duf"
+      ],
       "formats": [
         ".duf"
       ],
@@ -42,7 +44,9 @@
       "name": "GOCAD",
       "package": "evo-data-converters-gocad",
       "status": "implemented",
-      "extension": ".vo",
+      "extensions": [
+        ".vo"
+      ],
       "formats": [
         ".vo"
       ],
@@ -71,7 +75,15 @@
       "name": "Image",
       "package": "evo-data-converters-image",
       "status": "implemented",
-      "extension": ".jpeg",
+      "extensions": [
+        ".jpeg",
+        ".jpg",
+        ".png",
+        ".tif",
+        ".tiff",
+        ".bmp",
+        ".gif"
+      ],
       "formats": [
         ".jpeg",
         ".jpg",
@@ -107,7 +119,9 @@
       "name": "OBJ",
       "package": "evo-data-converters-obj",
       "status": "implemented",
-      "extension": ".obj",
+      "extensions": [
+        ".obj"
+      ],
       "formats": [
         ".obj"
       ],
@@ -142,7 +156,9 @@
       "name": "OMF",
       "package": "evo-data-converters-omf",
       "status": "implemented",
-      "extension": ".omf",
+      "extensions": [
+        ".omf"
+      ],
       "formats": [
         ".omf"
       ],
@@ -183,7 +199,10 @@
       "name": "RESQML",
       "package": "evo-data-converters-resqml",
       "status": "implemented",
-      "extension": ".epc",
+      "extensions": [
+        ".epc",
+        ".xml"
+      ],
       "formats": [
         ".epc",
         ".xml"
@@ -219,7 +238,12 @@
       "name": "SHP",
       "package": "evo-data-converters-shp",
       "status": "implemented",
-      "extension": ".shp",
+      "extensions": [
+        ".shp",
+        ".shx",
+        ".dbf",
+        ".prj"
+      ],
       "formats": [
         ".shp",
         ".shx",
@@ -252,7 +276,12 @@
       "name": "UBC",
       "package": "evo-data-converters-ubc",
       "status": "implemented",
-      "extension": ".msh",
+      "extensions": [
+        ".msh",
+        ".mod",
+        ".sus",
+        ".den"
+      ],
       "formats": [
         ".msh",
         ".mod",
@@ -284,7 +313,13 @@
       "name": "VTK",
       "package": "evo-data-converters-vtk",
       "status": "implemented",
-      "extension": ".vti",
+      "extensions": [
+        ".vti",
+        ".vtr",
+        ".vtu",
+        ".vtm",
+        ".xml"
+      ],
       "formats": [
         ".vti",
         ".vtr",
@@ -326,7 +361,10 @@
       "name": "XYZ",
       "package": "evo-data-converters-xyz",
       "status": "implemented",
-      "extension": ".xyz",
+      "extensions": [
+        ".xyz",
+        ".XYZ"
+      ],
       "formats": [
         ".xyz",
         ".XYZ"
