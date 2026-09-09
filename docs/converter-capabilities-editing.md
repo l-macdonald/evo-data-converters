@@ -18,7 +18,7 @@ uv run python scripts/manage_converter_capabilities.py add --id my-format --name
 
 3. Edit the generated entry fields in [converter-capabilities.json](../converter-capabilities.json).
 
-4. Regenerate stakeholder outputs. This also validates the file and rewrites it in normalized form, so there is no separate normalize step to remember:
+4. Render the documentation after editing. This validates the file, rewrites it in normalized form, and regenerates both the Markdown and HTML capability reports, so there is no separate normalize step to remember:
 
 ```shell
 uv run python scripts/render_converter_capabilities.py
