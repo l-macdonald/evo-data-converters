@@ -1,6 +1,5 @@
 # Converter Capability Matrix
 This page is generated from `converter-capabilities.json`.
-Generated (UTC): 2026-09-09 21:45:07
 | Converter | Status | Import | Export | Extensions | Evo Objects (Import) | Key Limitations |
 |---|---|---|---|---|---|---|
 | DUF | implemented | Yes | No | .duf | TriangleMesh, LineSegments | Some DUF geometry types are not supported., TriangleMesh: Per-face colour data is ignored on import., TriangleMesh: Negative face index visibility semantics are ignored; all faces are forced visible. |

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import html
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 
 from scripts.converter_capabilities_utils import normalize_registry, validate_registry, write_registry
@@ -27,11 +26,10 @@ def _read_registry() -> dict:
         return json.load(handle)
 
 
-def _render_markdown(registry: dict, generated_utc: str) -> str:
+def _render_markdown(registry: dict) -> str:
     lines: list[str] = []
     lines.append("# Converter Capability Matrix\n")
     lines.append("This page is generated from `converter-capabilities.json`.\n")
-    lines.append(f"Generated (UTC): {generated_utc}\n")
     lines.append(
       "| Converter | Status | Import | Export | Extensions | Evo Objects (Import) | Key Limitations |\n"
     )
@@ -75,7 +73,7 @@ def _render_markdown(registry: dict, generated_utc: str) -> str:
     return "".join(lines)
 
 
-def _render_html(registry: dict, generated_utc: str) -> str:
+def _render_html(registry: dict) -> str:
     rows = []
     for conv in sorted(registry["converters"], key=lambda c: c["id"]):
         row = (
@@ -181,7 +179,7 @@ def _render_html(registry: dict, generated_utc: str) -> str:
   <div class=\"wrap\">
     <section class=\"hero\">
       <h1>Evo Data Converter Capability Matrix</h1>
-      <div class=\"meta\">Generated (UTC): {html.escape(generated_utc)}</div>
+      <div class=\"meta\">This report is generated from converter-capabilities.json.</div>
       <div class=\"controls\">
         <input id=\"search\" type=\"search\" placeholder=\"Filter converters, objects, limitations...\" />
         <select id=\"importFilter\">
@@ -268,14 +266,12 @@ def main() -> None:
   # Rewriting is idempotent, so an already-normalized file produces no diff.
   write_registry(registry)
 
-  generated_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
-
   OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-  markdown = _render_markdown(registry, generated_utc)
+  markdown = _render_markdown(registry)
   OUTPUT_MD.write_text(markdown, encoding="utf-8")
 
-  html_report = _render_html(registry, generated_utc)
+  html_report = _render_html(registry)
   OUTPUT_HTML.write_text(html_report, encoding="utf-8")
 
   print(f"Normalized {INPUT_FILE}")
