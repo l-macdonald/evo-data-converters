@@ -33,12 +33,6 @@ uv run python scripts/manage_converter_capabilities.py validate
 uv run python scripts/manage_converter_capabilities.py normalize
 ```
 
-## Why this is safe
-
-- The JSON file is linked to [converter-capabilities.schema.json](../converter-capabilities.schema.json), so VS Code can flag shape mistakes while you type.
-- The validator checks required fields, duplicate ids/names, array types, and id/package consistency.
-- The normalize step keeps converter ordering stable, reducing merge conflicts.
-
 ## Required fields per converter
 
 Every converter entry must include these fields:
