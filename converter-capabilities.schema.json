@@ -61,8 +61,7 @@
         "name",
         "package",
         "status",
-        "extension",
-        "formats",
+        "extensions",
         "platform",
         "import",
         "export",
@@ -96,12 +95,6 @@
           "items": {
             "type": "string",
             "minLength": 1
-          }
-        },
-        "formats": {
-          "type": "array",
-          "items": {
-            "type": "string"
           }
         },
         "platform": {

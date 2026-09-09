@@ -20,9 +20,6 @@ def _scaffold_converter_entry(converter_id: str, name: str, status: str) -> dict
         "extensions": [
             ".ext"
         ],
-        "formats": [
-            ".ext"
-        ],
         "platform": [
             "Cross-platform (Python)"
         ],

@@ -11,9 +11,6 @@
       "extensions": [
         ".duf"
       ],
-      "formats": [
-        ".duf"
-      ],
       "platform": [
         "Windows only",
         "Requires Deswik Spatial and compatible .NET runtime"
@@ -47,9 +44,6 @@
       "extensions": [
         ".vo"
       ],
-      "formats": [
-        ".vo"
-      ],
       "platform": [
         "Cross-platform (Python)"
       ],
@@ -76,15 +70,6 @@
       "package": "evo-data-converters-image",
       "status": "implemented",
       "extensions": [
-        ".jpeg",
-        ".jpg",
-        ".png",
-        ".tif",
-        ".tiff",
-        ".bmp",
-        ".gif"
-      ],
-      "formats": [
         ".jpeg",
         ".jpg",
         ".png",
@@ -122,9 +107,6 @@
       "extensions": [
         ".obj"
       ],
-      "formats": [
-        ".obj"
-      ],
       "platform": [
         "Cross-platform (Python)",
         "TinyOBJ backend requires optional extra installation"
@@ -157,9 +139,6 @@
       "package": "evo-data-converters-omf",
       "status": "implemented",
       "extensions": [
-        ".omf"
-      ],
-      "formats": [
         ".omf"
       ],
       "platform": [
@@ -203,10 +182,6 @@
         ".epc",
         ".xml"
       ],
-      "formats": [
-        ".epc",
-        ".xml"
-      ],
       "platform": [
         "Cross-platform (Python)"
       ],
@@ -244,12 +219,6 @@
         ".dbf",
         ".prj"
       ],
-      "formats": [
-        ".shp",
-        ".shx",
-        ".dbf",
-        ".prj"
-      ],
       "platform": [
         "Cross-platform (Python)"
       ],
@@ -282,12 +251,6 @@
         ".sus",
         ".den"
       ],
-      "formats": [
-        ".msh",
-        ".mod",
-        ".sus",
-        ".den"
-      ],
       "platform": [
         "Cross-platform (Python)"
       ],
@@ -314,13 +277,6 @@
       "package": "evo-data-converters-vtk",
       "status": "implemented",
       "extensions": [
-        ".vti",
-        ".vtr",
-        ".vtu",
-        ".vtm",
-        ".xml"
-      ],
-      "formats": [
         ".vti",
         ".vtr",
         ".vtu",
@@ -362,10 +318,6 @@
       "package": "evo-data-converters-xyz",
       "status": "implemented",
       "extensions": [
-        ".xyz",
-        ".XYZ"
-      ],
-      "formats": [
         ".xyz",
         ".XYZ"
       ],

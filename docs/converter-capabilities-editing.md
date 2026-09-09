@@ -42,7 +42,6 @@ Every converter entry must include these fields:
 - package
 - status
 - extensions
-- formats
 - platform
 - import
 - export
@@ -58,7 +57,6 @@ Every converter entry must include these fields:
 - package: Python package name; must match id pattern evo-data-converters-{id}.
 - status: Lifecycle status (implemented, template_only, planned).
 - extensions: One or more primary source file extensions accepted by the converter.
-- formats: Source file extensions accepted by the converter.
 - platform: Runtime/platform notes and prerequisites.
 - import.supported: Whether import to Evo is supported.
 - import.source_types: Source-domain data types accepted by import.
