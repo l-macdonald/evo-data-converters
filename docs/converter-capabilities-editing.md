@@ -43,10 +43,3 @@ uv run --project packages/common python -m scripts.manage_converter_capabilities
 ```
 
 Then fill in the new entry and run the validation and render steps again.
-
-## Notes
-
-- [converter-capabilities.json](../converter-capabilities.json) is the source of truth.
-- [docs/converter-capabilities.md](../docs/converter-capabilities.md) is generated.
-- Use the `extensions` field for one or more accepted file extensions.
-- Keep package names consistent with the converter id, for example `evo-data-converters-xyz`.
