@@ -1,41 +1,11 @@
-# Editing Converter Capabilities Safely
+# Editing Converter Capabilities
 
-This guide describes the safest workflow to edit [converter-capabilities.json](../converter-capabilities.json).
+Use this quick workflow to update [converter-capabilities.json](../converter-capabilities.json) and keep the generated report in sync.
 
-## Recommended workflow
+## 1. Edit the registry
+Update the converter entry in [converter-capabilities.json](../converter-capabilities.json).
 
-1. Validate the current file before editing:
-
-```shell
-uv run python scripts/manage_converter_capabilities.py validate
-```
-
-2. If adding a new converter, scaffold a valid section instead of writing one manually:
-
-```shell
-uv run python scripts/manage_converter_capabilities.py add --id my-format --name "My Format"
-```
-
-3. Edit the generated entry fields in [converter-capabilities.json](../converter-capabilities.json).
-
-4. Render the documentation after editing. This validates the file, rewrites it in normalized form, and regenerates the Markdown capability report, so there is no separate normalize step to remember:
-
-```shell
-uv run python scripts/render_converter_capabilities.py
-```
-
-If validation fails, the command exits without writing anything — fix the reported errors and run it again.
-
-You can still validate or normalize on their own while iterating:
-
-```shell
-uv run python scripts/manage_converter_capabilities.py validate
-uv run python scripts/manage_converter_capabilities.py normalize
-```
-
-## Required fields per converter
-
-Every converter entry must include these fields:
+Use the required fields:
 
 - id
 - name
@@ -47,27 +17,36 @@ Every converter entry must include these fields:
 - export
 - limitations
 
-## Field glossary
+## 2. Validate it
+From the repo root:
 
-- schema_version: Registry schema version in major.minor format.
-- maintainers_note: Maintainer-facing note about how and when to update/regenerate artifacts.
-- converters: List of converter capability entries.
-- id: Stable converter identifier (lowercase slug, for example obj).
-- name: Human-readable converter name.
-- package: Python package name; must match id pattern evo-data-converters-{id}.
-- status: Lifecycle status (implemented, template_only, planned).
-- extensions: One or more primary source file extensions accepted by the converter.
-- platform: Runtime/platform notes and prerequisites.
-- import.supported: Whether import to Evo is supported.
-- import.source_types: Source-domain data types accepted by import.
-- import.produces_evo_objects: Evo object types produced by import.
-- export.supported: Whether export from Evo is supported.
-- export.supports_evo_objects: Evo object types accepted for export.
-- limitations: Known behavior limits, constraints, or caveats.
+```powershell
+uv run --project packages/common python -m scripts.manage_converter_capabilities validate
+```
 
-## Common mistakes caught by validation
+If this fails, fix the issue before continuing.
 
-- Duplicate converter ids
-- Missing import/export subfields
-- Non-string entries in arrays
-- Package not matching id pattern, for example id xyz must use package evo-data-converters-xyz
+## 3. Regenerate the docs
+After the file is valid, generate the Markdown report:
+
+```powershell
+uv run --project packages/common python -m scripts.render_converter_capabilities
+```
+
+This updates [docs/converter-capabilities.md](../docs/converter-capabilities.md).
+
+## 4. Add a new converter entry
+If you are adding a new converter instead of editing an existing one:
+
+```powershell
+uv run --project packages/common python -m scripts.manage_converter_capabilities add --id my-format --name "My Format"
+```
+
+Then fill in the new entry and run the validation and render steps again.
+
+## Notes
+
+- [converter-capabilities.json](../converter-capabilities.json) is the source of truth.
+- [docs/converter-capabilities.md](../docs/converter-capabilities.md) is generated.
+- Use the `extensions` field for one or more accepted file extensions.
+- Keep package names consistent with the converter id, for example `evo-data-converters-xyz`.
